@@ -38,7 +38,15 @@ result = df[(df["Salary"] > 35000) & (df["Age"] > 25)]
 # OR
 result2 = df[(df["Age"] > 30) | (df["Salary"] > 60000)]
 # .isin() — check membership
-it_hr = df[df["Department"].isin(["IT", "HR"])]
+#it_hr = df[df["Department"].isin(["IT", "HR"])]
 # .between() — range check
 mid_salary = df[df["Salary"].between(40000, 60000)]
 
+#Setting a Custom Index
+# Set a column as the index (good for lookup-heavy operations)
+df.set_index("Name", inplace=True)
+print(df.loc["Ravi"]) # access by name now
+# Reset back to default integer index
+df.reset_index(inplace=True)
+# Set index during read
+#df = pd.read_csv("data.csv", index_col="EmpID")
