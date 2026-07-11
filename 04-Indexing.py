@@ -29,3 +29,16 @@ print(df.iloc[-1])
 print(df.iloc[:3, :])
 # All rows, last 2 columns
 print(df.iloc[:, -2:])
+
+#Boolean Indexing
+# Single condition
+high_salary = df[df["Salary"] > 40000]
+# AND fi wrap each condition in ()
+result = df[(df["Salary"] > 35000) & (df["Age"] > 25)]
+# OR
+result2 = df[(df["Age"] > 30) | (df["Salary"] > 60000)]
+# .isin() — check membership
+it_hr = df[df["Department"].isin(["IT", "HR"])]
+# .between() — range check
+mid_salary = df[df["Salary"].between(40000, 60000)]
+
