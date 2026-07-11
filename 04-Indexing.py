@@ -16,3 +16,16 @@ print(df.loc[1, "Salary"]) # 35000
 print(df.loc[0:2, ["Name","Salary"]])
 # Update a value
 df.loc[0, "Salary"] = 40000
+
+# iloc — Integer Position-Based Indexing
+# Use integer positions (like Python lists). Exclusive on the END.
+# First row
+print(df.iloc[0])
+# Rows 0,1 — columns 0,2 (stop is EXCLUSIVE)
+print(df.iloc[0:2, [0, 2]])
+# Last row
+print(df.iloc[-1])
+# First 3 rows, all columns
+print(df.iloc[:3, :])
+# All rows, last 2 columns
+print(df.iloc[:, -2:])
