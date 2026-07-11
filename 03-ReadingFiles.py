@@ -25,3 +25,21 @@ df_sql = pd.read_sql("SELECT * FROM users", con=engine)
 df_sql2 = pd.read_sql_table("users", con=engine) # entire table
 df_sql3 = pd.read_sql_query("SELECT id, name FROM users WHERE age > 25",
 con=engine) # just a query
+
+#Writing Files
+df={
+    "Name":['Shravan','Sandy','Ceo Of India'],
+    "Age":[21,20,100],
+    "City":['Hyderabad','Hyd','Hyd']
+}
+#to_csv
+df.to_csv("output.csv", index=False)
+# index=False fi do NOT write the row numbers as a column (almost always want this)
+# sep=',' encoding='utf-8'
+#to_excel
+df.to_excel("output.xlsx", sheet_name="Results", index=False)
+#to_json
+df.to_json("output.json", orient="records", indent=2)
+#to_sql
+df.to_sql("table_name", con=engine, if_exists="replace", index=False)
+# if_exists: 'fail' | 'replace' | 'append'
