@@ -3,7 +3,7 @@ df = pd.DataFrame({
 "EmpID": ["101", "102", "103"],
 "Age": ["22", "25", "28"],
 "Salary": ["30000.5", "35000", "42000.75"],
-"Joined": ["2022-01-15", "2021-06-01", "2023-03-10"],
+"Joined": ["2026-07-11", "2026-07-12", "2026-07-13"],
 "IsActive": ["True", "False", "True"]
 })
 print(df.dtypes) # everything is 'object' (string)
@@ -19,7 +19,7 @@ df = df.astype({"EmpID": int, "Age": int, "Salary": float})
 df["Age"] = pd.to_numeric(df["Age"], errors="coerce")
 df["Salary"] = pd.to_numeric(df["Salary"], errors="coerce")
 # pd.to_datetime() — parse date strings 
-df["Joined"] = pd.to_datetime(df["Joined"])
+df["Joined"] = pd.to_datetime(df["Joined"], utc=True, errors="coerce")
 print(df["Joined"].dtype) # datetime64[ns]
 # Custom format
 df["Joined"] = pd.to_datetime(df["Joined"], format="%Y-%m-%d")
